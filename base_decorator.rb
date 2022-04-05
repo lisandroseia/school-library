@@ -1,7 +1,6 @@
 require_relative 'nameable'
 
 class BaseDecorator < Nameable
-
   attr_accessor :namable
 
   def initialize(namable = Nameable)
@@ -26,4 +25,3 @@ class TrimmerDecorator < BaseDecorator
     name.length > 10 ? name[0, 9] : name
   end
 end
-
