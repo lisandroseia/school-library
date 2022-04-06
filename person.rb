@@ -1,5 +1,6 @@
 require_relative 'nameable'
 require_relative 'base_decorator'
+require_relative 'rental'
 
 class Person < Nameable
   attr_reader :id
@@ -28,7 +29,7 @@ class Person < Nameable
     @age >= 18
   end
 
-  def add_rentals(rent)
-    @rentals.push(rent)
+  def add_rentals(date, book)
+    Rental.new(date, self, book)
   end
 end
