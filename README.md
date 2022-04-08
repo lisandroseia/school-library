@@ -2,7 +2,7 @@
 
 # School library
 
-> In this project I made a person object following the decorator pattern, allowing the user to capitalize the person number, or to trim it
+> In this project, you can ran the aplication to start uploading books, persons and rentals using the comand line interface!
 
 ## Built With
 
