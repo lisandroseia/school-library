@@ -19,6 +19,7 @@ To get a local copy up and running follow these simple example steps.
 
 run "git clone https://github.com/lisandroseia/school-library.git"
 run "cd /ruby-school-library"
+run "bundle install" to install dependancies
 
 👤 **Lisandro Seia**
 
