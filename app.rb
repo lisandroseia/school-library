@@ -162,9 +162,9 @@ class App
     puts 'rentals: '
     @people.each do |person|
       next unless person.id == id
-      
+
       person.rentals.each do |rental|
-          puts "Date: #{rental.date}, book: #{rental.book.title} by #{rental.book.author}"
+        puts "Date: #{rental.date}, book: #{rental.book.title} by #{rental.book.author}"
       end
     end
     reset
