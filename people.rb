@@ -3,12 +3,21 @@ require_relative './teacher'
 
 class People
   attr_reader :list
+
   def initialize
     @list = []
   end
 
   def add_person(person)
     @list << person.create_person
+  end
+
+  def filter_with_index(index)
+    @list[index]
+  end
+
+  def filter_with_id(id)
+    @list.select { |person| person.id == id }[0]
   end
 end
 
