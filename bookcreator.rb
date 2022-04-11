@@ -1,5 +1,6 @@
 class BookList
   attr_reader :list
+
   def initialize
     @list = []
   end
@@ -19,4 +20,7 @@ class BookList
     puts 'Book created succesfuly'
   end
 
+  def filter_with_index(index)
+    @list[index]
+  end
 end
