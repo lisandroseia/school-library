@@ -1,12 +1,13 @@
-require_relative './book'
-require_relative './student'
-require_relative './teacher'
-require_relative './rental'
+require_relative 'book'
+require_relative 'rental'
+require_relative 'people'
+require_relative 'printer'
+require_relative 'bookcreator'
 
 class App
   def initialize
-    @books = []
-    @people = []
+    @books = BookList.new
+    @people = People.new
     @num = 0
   end
 
@@ -18,20 +19,20 @@ class App
   private
 
   def menu
-    until @num < 7 && @num.positive?
+    loop do   
       puts "Please choose an option by entering a number\n1- List all books\n2- List all people\n3- Create a person
 4- Create a book\n5- Create a rental\n6- List all rentals\n7- exit"
-      @num = gets.chomp.to_i
-    end
-    case @num.to_i
-    when 1 then list_books_flow
-    when 2 then list_people_flow
+    num = gets.chomp.to_i
+    case num.to_i
+    when 1 then ListPrinter::print_list(@books.list)
+    when 2 then ListPrinter::print_list(@people.list)
     when 3 then add_person
-    when 4 then create_book
+    when 4 then @books.add_book
     when 5 then create_rental
     when 6 then list_rentals
-    when 7 then puts 'exiting'
+    when 7 then break
     end
+   end
   end
 
   def add_person
@@ -39,7 +40,7 @@ class App
     until input.to_i.positive? && input.to_i < 3
       puts 'Do you want to create a student(1) or a teacher(2)?[input the number]'
       input = gets.chomp
-      input == '1' ? create_student : create_teacher
+      @people.add_person(input == '1' ?  CreateStudent.new: CreateTeacher.new)
     end
     @num = 0
   end
@@ -117,11 +118,11 @@ class App
     reset
   end
 
-  def list_books
-    @books.each_with_index do |book, index|
-      puts "#{index}) Title: #{book.title} Author: #{book.author}"
-    end
-  end
+#  def list_books
+#    @books.each_with_index do |book, index|
+#      puts "#{index}) Title: #{book.title} Author: #{book.author}"
+#    end
+#  end
 
   def create_rental
     book_index = -1
