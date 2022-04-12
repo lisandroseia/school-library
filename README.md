@@ -21,10 +21,23 @@ run "git clone https://github.com/lisandroseia/school-library.git"
 run "cd /ruby-school-library"
 run "bundle install" to install dependancies
 
+### Run the app
+
+Run "ruby main.rp" to start the aplication
+
 👤 **Lisandro Seia**
 
  **GitHub**  | [@lisandroseia](https://github.com/lisandroseia)
  **LinkdIn** | [LinkedIn](https://www.linkedin.com/in/lisandro-seia-295120225/)
+
+ 👤 **Leonardo Albornoz** 
+ - GitHub: [@Leboroz](https://github.com/leboroz) - Twitter: [@Leboroz](https://twitter.com/leboroz) 
+ - LinkedIn: [Leonardo Albornoz](https://linkedin.com/in/leboroz) 
+
+ 👤 **Zeeshan Haider**
+ 
+ - GitHub: [@zhadier](https://github.com/zhadier) 
+ - LinkedIn: [Zeeshan Haider](https://www.linkedin.com/in/zhadier39/) 
 
 ## 🤝 Contributing
 

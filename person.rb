@@ -23,6 +23,10 @@ class Person < Nameable
     of_age? || parent_permission
   end
 
+  def to_s
+    "ID: #{@id} Name: #{@name} Age: #{age}"
+  end
+
   private
 
   def of_age?
