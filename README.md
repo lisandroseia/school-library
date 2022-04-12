@@ -23,7 +23,7 @@ run "bundle install" to install dependancies
 
 ### Run the app
 
-Run "ruby app.rp" to start the aplication
+Run "ruby main.rp" to start the aplication
 
 👤 **Lisandro Seia**
 

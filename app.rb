@@ -10,38 +10,28 @@ class App
     @people = People.new
   end
 
-  def start
-    puts 'Welcome to School Library!'
-    menu
+  def start(num)
+    case num.to_i
+    when 1 then ListPrinter.print_list(@books.list)
+    when 2 then ListPrinter.print_list(@people.list)
+    when 3 then add_person
+    when 4 then @books.add_book
+    when 5 then create_rental
+    when 6 then list_rentals
+    when 7 then 'exit'
+    end
   end
 
   private
 
-  def menu
-    loop do
-      puts "Please choose an option by entering a number\n1- List all books\n2- List all people\n3- Create a person
-4- Create a book\n5- Create a rental\n6- List all rentals\n7- exit"
-      num = gets.chomp.to_i
-      case num.to_i
-      when 1 then ListPrinter.print_list(@books.list)
-      when 2 then ListPrinter.print_list(@people.list)
-      when 3 then add_person
-      when 4 then @books.add_book
-      when 5 then create_rental
-      when 6 then list_rentals
-      when 7 then break
-      end
-    end
-  end
-
   def add_person
-    input = ''
-    until input.to_i.positive? && input.to_i < 3
-      puts 'Do you want to create a student(1) or a teacher(2)?[input the number]'
-      input = gets.chomp
-      @people.add_person(input == '1' ? CreateStudent.new : CreateTeacher.new)
+    puts 'Do you want to create a student(1) or a teacher(2)?[input the number]'
+    input = gets.chomp.to_i
+    while input > 2 || input < 1
+      puts 'Please input correct choice'
+      input = gets.chomp.to_i
     end
-    @num = 0
+    @people.add_person(input == 1 ? CreateStudent.new : CreateTeacher.new)
   end
 
   def create_rental
@@ -78,10 +68,3 @@ class App
     end
   end
 end
-
-def main
-  app = App.new
-  app.start
-end
-
-main
