@@ -5,13 +5,17 @@ require_relative 'printer'
 require_relative 'bookcreator'
 require_relative 'rentalcreator'
 require_relative 'io.rb'
+require_relative 'book'
 
 class App
   def initialize
+    @manager = FileManager.new
     @books = BookList.new
     @people = People.new
     @rentals = RentalCreator.new
-    @manager = FileManager.new
+    @manager.read(@books, 'books.json')
+#    @manager.read(@people, 'people.json')
+#    @manager.read(@rentals, 'rentals.json')
   end
 
   def start(num)
