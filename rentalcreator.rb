@@ -1,13 +1,13 @@
 require_relative 'printer'
 
 class RentalCreator
-  attr_reader :list
+  attr_accessor :list
 
   def initialize
     @list = []
   end
 
-  def add_rental (people, books)
+  def add_rental(people, books)
     book_index = -1
     person_index = -1
     puts 'select a book from the following list by number'
@@ -24,7 +24,8 @@ class RentalCreator
     end
     puts 'date: (YYYY/MM/DD): '
     date = gets.chomp
-    @list << Rental.new(date, people.filter_with_index(person_index), books.filter_with_index(book_index))
+    @list << Rental.new({ 'date' => date, 'person' => people.filter_with_index(person_index),
+                          'book' => books.filter_with_index(book_index) })
     puts 'Rental created succesfully'
   end
 end

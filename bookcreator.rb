@@ -23,4 +23,9 @@ class BookList
   def filter_with_index(index)
     @list[index]
   end
+
+  def filter_with_title(title)
+    @list.select { |book| book.title.eql?(title) }[0]
+  end
+
 end

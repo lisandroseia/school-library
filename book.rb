@@ -14,7 +14,7 @@ class Book
   end
 
   def to_object
-    obj = {class_name: "Book" , opt: {title: @title, author: @author} }
+    { class_name: 'Book', opt: { title: @title, author: @author } }
   end
 
   def add_rentals(date, person)

@@ -2,7 +2,7 @@ require_relative './student'
 require_relative './teacher'
 
 class People
-  attr_reader :list
+  attr_accessor :list
 
   def initialize
     @list = []
@@ -45,7 +45,8 @@ class CreateStudent < CreatePerson
         permision = input == 'Y'
       end
     end
-    Student.new(nil, @age, @name, parent_permission: permision)
+    Student.new({ 'classroom' => nil, 'age' => @age, 'id' => Random.rand(1..1000), 'name' => @name,
+                  'parent_permission' => permision })
   end
 end
 
@@ -54,6 +55,6 @@ class CreateTeacher < CreatePerson
     super
     puts 'Specialization:'
     specialization = gets.chomp.strip.capitalize
-    Teacher.new(specialization, @age, @name)
+    Teacher.new({ 'specialization' => specialization, 'age' => @age, 'id' => Random.rand(1..1000), 'name' => @name })
   end
 end

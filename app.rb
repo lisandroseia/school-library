@@ -4,8 +4,7 @@ require_relative 'people'
 require_relative 'printer'
 require_relative 'bookcreator'
 require_relative 'rentalcreator'
-require_relative 'io.rb'
-require_relative 'book'
+require_relative 'io'
 
 class App
   def initialize
@@ -14,8 +13,8 @@ class App
     @people = People.new
     @rentals = RentalCreator.new
     @manager.read(@books, 'books.json')
-#    @manager.read(@people, 'people.json')
-#    @manager.read(@rentals, 'rentals.json')
+    @manager.read(@people, 'people.json')
+    @manager.rentals_read(@rentals, @people, @books, 'rentals.json')
   end
 
   def start(num)
@@ -46,6 +45,7 @@ class App
     id = 0
     until id.positive?
       puts 'id of person: '
+      ListPrinter.print_list(@people.list)
       id = gets.chomp.to_i
     end
     puts 'rentals: '
@@ -57,6 +57,9 @@ class App
 
   def handle_exit
     @manager.write(@books.list, 'books.json')
-    return 'exit'
+    @manager.write(@people.list, 'people.json')
+    @manager.write(@rentals.list, 'rentals.json')
+
+    'exit'
   end
 end
