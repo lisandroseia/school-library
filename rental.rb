@@ -10,6 +10,6 @@ class Rental
   end
 
   def to_object
-    { class_name: 'Rental', date: @date, person: @person.id, book: @book.title  }
+    { class_name: 'Rental', date: @date, person: @person.id, book: @book.title }
   end
 end

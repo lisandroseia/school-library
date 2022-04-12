@@ -16,7 +16,7 @@ class BookList
       puts 'Author'
       author = gets.chomp
     end
-    @list << Book.new({"title"=>title, "author"=>author})
+    @list << Book.new({ 'title' => title, 'author' => author })
     puts 'Book created succesfuly'
   end
 
@@ -27,5 +27,4 @@ class BookList
   def filter_with_title(title)
     @list.select { |book| book.title.eql?(title) }[0]
   end
-
 end
