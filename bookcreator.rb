@@ -1,5 +1,5 @@
 class BookList
-  attr_reader :list
+  attr_accessor :list
 
   def initialize
     @list = []
@@ -16,7 +16,7 @@ class BookList
       puts 'Author'
       author = gets.chomp
     end
-    @list << Book.new(title, author)
+    @list << Book.new({"title"=>title, "author"=>author})
     puts 'Book created succesfuly'
   end
 
