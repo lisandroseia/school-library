@@ -18,6 +18,6 @@ class Book
   end
 
   def add_rentals(date, person)
-    Rental.new(date, person, self)
+    Rental.new({ 'date' => date, 'person' => person, 'book' => self })
   end
 end
