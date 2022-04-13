@@ -33,7 +33,6 @@ describe Teacher do
     end
   end
 
-
   context '#to_object' do
     it 'should return an object with classname and data' do
       obj = @teacher.to_object
@@ -43,7 +42,7 @@ describe Teacher do
 
   context '#can_use_services' do
     it 'Returns true' do
-      expect(@teacher.can_use_services?).to be true 
+      expect(@teacher.can_use_services?).to be true
     end
   end
 end

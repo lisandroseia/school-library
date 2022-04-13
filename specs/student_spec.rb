@@ -46,13 +46,13 @@ describe Student do
     it 'should return an object with classname and data' do
       obj = @student.to_object
       expect(obj).to eql({ class_name: 'Student', opt: { classroom: nil, id: 10, name: 'jhon', age: 20,
-        parent_permission: true } })
+                                                         parent_permission: true } })
     end
   end
 
   context '#play_hooky' do
     it '¯\(ツ)/¯' do
-      expect(@student.play_hooky).to eql ("¯\(ツ)/¯") 
+      expect(@student.play_hooky).to eql("¯\(ツ)/¯")
     end
   end
 end

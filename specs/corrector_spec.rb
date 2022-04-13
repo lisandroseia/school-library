@@ -21,7 +21,6 @@ describe TrimmerDecorator do
   end
   context '#correct_name' do
     it 'should fix the word to 10 characters' do
-
       cd = TrimmerDecorator.new(@person)
 
       expect(cd.correct_name).to eql('jhonjhonj')
@@ -35,7 +34,6 @@ describe CapitalizeDecorator do
   end
   context '#correct_name' do
     it 'should capitalize the given word' do
-
       cd = CapitalizeDecorator.new(@person)
 
       expect(cd.correct_name).to eql('Jhon')

@@ -23,34 +23,34 @@ describe Person do
 
     it 'should return false when age < 18 && !parents_permission' do
       @person.age = 15
-      @person.parent_permission = false 
+      @person.parent_permission = false
       bool = @person.can_use_services?
       expect(bool).to be false
     end
 
     it 'should return false when age < 18 && !parents_permission' do
-        @person.age = 15
-        @person.parent_permission = true 
-        bool = @person.can_use_services?
-        expect(bool).to be true
-      end
+      @person.age = 15
+      @person.parent_permission = true
+      bool = @person.can_use_services?
+      expect(bool).to be true
+    end
   end
 
   context '#to_s' do
     it 'should return a string with the id, name and age' do
       str = @person.to_s
-      expect(str).to eql("ID: 10 Name: jhon Age: 20")
+      expect(str).to eql('ID: 10 Name: jhon Age: 20')
     end
   end
 
-     context '#add_rentals' do
-       it 'should create a rental' do
-         book = double('Book')
+  context '#add_rentals' do
+    it 'should create a rental' do
+      book = double('Book')
 
-         allow(book).to receive(:rentals) { [] }
+      allow(book).to receive(:rentals) { [] }
 
-         @person.add_rentals('2020/20/20', book)
-         expect(@person.rentals.length).to be(1)
-       end
-     end
+      @person.add_rentals('2020/20/20', book)
+      expect(@person.rentals.length).to be(1)
+    end
+  end
 end

@@ -24,7 +24,7 @@ class Person < Nameable
   end
 
   def add_rentals(date, book)
-    Rental.new({'date' => date, 'person' => self, 'book' => book})
+    Rental.new({ 'date' => date, 'person' => self, 'book' => book })
   end
 
   def correct_name
