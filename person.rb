@@ -27,6 +27,10 @@ class Person < Nameable
     Rental.new({'date' => date, 'person' => self, 'book' => book})
   end
 
+  def correct_name
+    @name
+  end
+
   private
 
   def of_age?

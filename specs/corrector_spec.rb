@@ -1,37 +1,44 @@
-require_relative '../base_decorator.rb'
+require_relative '../base_decorator'
+require_relative '../person'
 
 describe BaseDecorator do
-  context "#new" do
-    it 'should be an instance of base_decorator' do
-      base_decorator = BaseDecorator.new()
+  before :each do
+    @person = Person.new(20, 10, 'jhon', parent_permission: true)
+  end
 
-      expect base_decorator.to be_instance_of BaseDecorator
+  context '#new' do
+    it 'should be an instance of base_decorator' do
+      base_decorator = BaseDecorator.new(@person)
+
+      expect(base_decorator).to be_instance_of BaseDecorator
     end
   end
 end
 
 describe TrimmerDecorator do
-  context "#correct_name" do
+  before :each do
+    @person = Person.new(20, 10, 'jhonjhonjhon', parent_permission: true)
+  end
+  context '#correct_name' do
     it 'should fix the word to 10 characters' do
-      case_test = "Lisandrooooo"
 
-      cd = TrimmerDecorator.new()
-      expected = "Lisandrooo"
+      cd = TrimmerDecorator.new(@person)
 
-      expect cd.correct_name case_test.to be expected
+      expect(cd.correct_name).to eql('jhonjhonj')
     end
   end
 end
 
 describe CapitalizeDecorator do
-  context "#correct_name" do
+  before :each do
+    @person = Person.new(20, 10, 'jhon', parent_permission: true)
+  end
+  context '#correct_name' do
     it 'should capitalize the given word' do
-      case_test = "zeeshan"
 
-      cd = CapitalizeDecorator.new()
-      expected = "zeeshan"
+      cd = CapitalizeDecorator.new(@person)
 
-      expect cd.correct_name case_test.to be expected
+      expect(cd.correct_name).to eql('Jhon')
     end
   end
 end
